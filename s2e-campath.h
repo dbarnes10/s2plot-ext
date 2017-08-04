@@ -79,9 +79,9 @@ char *writeCamPath(S2E_CAMPATH cpath);
 // Free a camera path (convenience function)
 void freeCamPath(S2E_CAMPATH cpath);
 
-// Find a spline-interpolated position between P1 and P2.  Pn is P3
-// [next point after P2], or P2 if there is no P3.  Similarly, Pm is
-// P0 [point previous to P1], or P1 if there is no P0.  Parameter t =
+// Find a spline-interpolated position between P1 and P2.  Pm is the
+// tangent at P1, Pn is the tangent at P2. Compute these prior to
+// calling by e.g. using P0 and P3 if they exist.  Parameter t =
 // 0 gives P1, t = 1 gives P2.  strength1 and strength2 give the
 // tightness of the spline fit at P1 and P2.  Try values around 1 to
 // 15.

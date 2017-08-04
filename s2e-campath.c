@@ -126,11 +126,12 @@ void freeCamPath(S2E_CAMPATH cpath) {
   cpath.n = 0;
 }
 
-// spline interpolator
-// find an interpolated position between P0 and P3.  Pn is either
-// P4 (or P3 if P4 not available).  t = 0 gives P0, t = 1 gives P3.
-// strength0 and strength3 give the tightness of the spline fit at
-// P0 and P3.  Try values around 1 to 15.
+// Find a spline-interpolated position between P1 and P2.  Pm is the
+// tangent at P1, Pn is the tangent at P2. Compute these prior to
+// calling by e.g. using P0 and P3 if they exist.  Parameter t =
+// 0 gives P1, t = 1 gives P2.  strength1 and strength2 give the
+// tightness of the spline fit at P1 and P2.  Try values around 1 to
+// 15.
 XYZ splineInterp(XYZ P1, XYZ P2, XYZ Pm, XYZ Pn, float t,
 		 float strength1, float strength2) {
 
